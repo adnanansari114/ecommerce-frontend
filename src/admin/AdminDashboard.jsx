@@ -13,6 +13,7 @@ const quickLinks = [
   { to: "/products", label: "View Products", icon: "🗂️" },
   { to: "/admin/order-accept", label: "Manage Orders", icon: "📋" },
   { to: "/users", label: "Manage Users", icon: "👥" },
+  { to: "/admin/contact-messages", label: "Contact Messages", icon: "💬" },
 ]; 
 
 const AdminDashboard = () => {

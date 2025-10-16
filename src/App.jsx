@@ -17,6 +17,7 @@ import OrderConfirmation from './user/OrderConfirmation.jsx';
 import OrderDetail from './admin/OrderDetail.jsx';
 import AllProduct from './admin/AllProduct.jsx';
 import AdminProduct from './admin/AdminProduct.jsx';
+import AdminContactMessages from './admin/AdminContactMessages.jsx';
 import Checkout from './pages/Checkout.jsx';
 import Loader from './components/Loader.jsx';
 import ContactUs from './Privacy/ContactUs.jsx';
@@ -55,6 +56,7 @@ function App() {
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/edit-product/:productId" element={<EditProduct />} />
         <Route path="/admin/order-accept" element={<OrderAccept />} />
+        <Route path="/admin/contact-messages" element={<AdminContactMessages />} />
         <Route path="/allproducts" element={<AllProduct />} />
         <Route path="/adminproduct/:id" element={<AdminProduct />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
