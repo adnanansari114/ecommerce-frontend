@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="custom-navbar">
       {/* Left: Logo */} 
       <div className="navbar-logo">
-        <Link href="/">
+        <Link to="/">
           <img
             src="/logo192.png"
             alt="Trendora Logo"
@@ -33,11 +33,11 @@ const Navbar = () => {
       {/* Middle: Navigation Links */}
       <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
       <div className="navbar-links">
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/products">Products</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/privacy-policy">Privacy Policy</Link>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/products">Products</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/privacy-policy">Privacy Policy</Link>
       </div>
       </div>
 
@@ -46,20 +46,20 @@ const Navbar = () => {
       <div className="navbar-auth">
         {!user ? (
           <>
-            <Link className="login-btn" href="/login">Login</Link>
-            <Link className="register-btn" href="/register">Register</Link>
+            <Link className="login-btn" to="/login">Login</Link>
+            <Link className="register-btn" to="/register">Register</Link>
           </>
         ) : (
           <>
           <div className="pro-detail">
           <div className="pro-detail1">
-            <Link className="wishlist-btn" href="/wishlist" title="Wishlist">
+            <Link className="wishlist-btn" to="/wishlist" title="Wishlist">
               <span role="img" aria-label="Wishlist">🤍</span>
             </Link>
-            <Link id="cart-btn" href="/cart" title="Cart">
+            <Link id="cart-btn" to="/cart" title="Cart">
               <span role="img" aria-label="Cart">🛒</span>
             </Link>
-            <Link className="profile-btn" href="/profile" title="Profile">
+            <Link className="profile-btn" to="/profile" title="Profile">
               <span role="img" aria-label="Profile">👤</span>
             </Link>
             </div>
