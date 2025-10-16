@@ -1046,6 +1046,17 @@
 
 
 @media (max-width: 900px) {
+  .admin-navbar{
+    padding-bottom: 165px;
+  }
+  .admin-navbar ul{
+    flex-direction: column;
+    align-items: start;
+    padding: 25px 24px;
+  }
+  .admin-navbar ul li{
+    padding-bottom: 20px;
+  }
   .admin-dashboard-stats {
     flex-direction: column;
     gap: 1.2rem;

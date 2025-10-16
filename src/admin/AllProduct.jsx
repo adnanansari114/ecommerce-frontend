@@ -53,7 +53,7 @@ const handleDelete = async (productId) => {
       {likeMsg && <div className="like-msg">{likeMsg}</div>}
       <div className="products-grid">
         {products.map((product) => (
-          <div className="product-card" key={product._id}>
+          <div className="product-cards" key={product._id}>
             <div className="product-img-wrap">
               <img
                 src={
