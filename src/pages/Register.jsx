@@ -53,8 +53,10 @@ const Register = () => {
       name: form.name,
       username: form.username,
       email: form.email,
-      password: form.password,
       phone: form.phone,
+      password: form.password,
+      confirmPassword: form.confirmPassword,
+      agreed: form.agreed
     });
     setSubmitted(true);
     setTimeout(() => {
