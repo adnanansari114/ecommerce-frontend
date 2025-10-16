@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../Styles/User.css";
+import "../styles/User.css";
 import defaultImg from "../assets/default-avatar.png";
 import API from "../utils/api";
 
