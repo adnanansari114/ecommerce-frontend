@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import "../Styles/User.css";
+import "../styles/User.css";
 import API from "../utils/api";
 import defaultAvatar from "../assets/default-avatar.png";
 

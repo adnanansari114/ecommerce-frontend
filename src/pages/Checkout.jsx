@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/pages.css";
+import "../styles/Pages.css";
 import { Link } from "react-router-dom";
 
 // Dummy cart data for demonstration
