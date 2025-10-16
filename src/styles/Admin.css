@@ -458,7 +458,7 @@
   box-shadow: 0 2px 8px rgba(0,123,255,0.07);
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
- 
+
 .admin-dashboard-link-btn:hover {
   background: #007bff;
   color: #fff;
