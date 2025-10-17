@@ -36,6 +36,7 @@ import UserDashboard from './user/UserDashboard.jsx';
 import Wishlist from './user/Wishlist.jsx';
 import OrderHistory from './user/OrderHistory.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
+import AuthSuccess from './pages/AuthSuccess.jsx';
 
 function App() {
   const adminToken = localStorage.getItem("adminToken");
@@ -76,6 +77,8 @@ function App() {
         <Route path="/dashboard" element={<UserDashboard />} />
         <Route path="/order-history" element={<OrderHistory />} />
         <Route path="/wishlist" element={<Wishlist />} />
+
+        <Route path="/auth/success" element={<AuthSuccess />} />
         {/* Add more routes here as needed */}
       </Routes>
       <Footer />

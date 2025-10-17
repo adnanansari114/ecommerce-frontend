@@ -113,13 +113,9 @@ const Login = () => {
 };
 
   const handleGoogle = () => {
-    setGoogleLoading(true);
-    setTimeout(() => {
-      setGoogleLoading(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 2000);
-  };
+  const base = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  window.location.href = `${base}/api/auth/google`;
+}; 
 
   return (
     <div className="register-main">

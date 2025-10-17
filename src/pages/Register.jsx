@@ -16,6 +16,9 @@ const Register = () => {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [googleLoading, setGoogleLoading] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,65 +29,86 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+//   const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   setError("");
+//   // Validation (SAME - NO CHANGE!)
+//   if (!form.name || !form.username || !form.email || !form.password || !form.confirmPassword || !form.phone) {
+//     setError("Please fill all required fields.");
+//     return;
+//   }
+//   if (form.password.length < 6) {
+//     setError("Password must be at least 6 characters.");
+//     return;
+//   }
+//   if (form.password !== form.confirmPassword) {
+//     setError("Passwords do not match.");
+//     return;
+//   }
+//   if (!form.agreed) {
+//     setError("You must agree to the terms and privacy policy.");
+//     return;
+//   }
+
+//   // API call
+//   try {
+//     const res = await API.post("/api/auth/register", {
+//       name: form.name,
+//       username: form.username,
+//       email: form.email,
+//       phone: form.phone,
+//       password: form.password,
+//       confirmPassword: form.confirmPassword,
+//       agreed: form.agreed
+//     });
+//     setSubmitted(true);
+//     setTimeout(() => {
+//       setSubmitted(false);
+//       navigate("/login");
+//     }, 1500);
+//     setForm({
+//       name: "",
+//       username: "",
+//       email: "",
+//       password: "",
+//       confirmPassword: "",
+//       phone: "",
+//       agreed: false,
+//     });
+//   } catch (err) {
+//     setError(err.response?.data?.msg || "Registration failed.");
+//   }
+// };
+
+const handleSubmit = async (e) => {
   e.preventDefault();
   setError("");
-  // Validation (SAME - NO CHANGE!)
-  if (!form.name || !form.username || !form.email || !form.password || !form.confirmPassword || !form.phone) {
-    setError("Please fill all required fields.");
-    return;
-  }
-  if (form.password.length < 6) {
-    setError("Password must be at least 6 characters.");
-    return;
-  }
-  if (form.password !== form.confirmPassword) {
-    setError("Passwords do not match.");
-    return;
-  }
-  if (!form.agreed) {
-    setError("You must agree to the terms and privacy policy.");
-    return;
-  }
 
-  // API call
   try {
-    const res = await API.post("/api/auth/register", {
-      name: form.name,
-      username: form.username,
-      email: form.email,
-      phone: form.phone,
-      password: form.password,
-      confirmPassword: form.confirmPassword,
-      agreed: form.agreed
-    });
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      navigate("/login");
-    }, 1500);
-    setForm({
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      phone: "",
-      agreed: false,
-    });
+    // First Step — send OTP
+    const res = await API.post("/api/auth/register", form);
+    setOtpSent(true);
+    alert("OTP sent to your email!");
   } catch (err) {
-    setError(err.response?.data?.msg || "Registration failed.");
+    setError(err.response?.data?.msg || "Error sending OTP");
+  }
+};
+const handleVerifyOTP = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await API.post("/api/auth/verify-otp", { ...form, otp });
+    alert("Registration Successful!");
+    navigate("/login");
+  } catch (err) {
+    setError(err.response?.data?.msg || "Invalid OTP");
   }
 };
 
+
   const handleGoogle = () => {
-    setGoogleLoading(true);
-    setTimeout(() => {
-      setGoogleLoading(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 2000);
-  };
+  const base = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  window.location.href = `${base}/api/auth/google`;
+}; 
 
   return (
     <div className="register-main">
@@ -98,6 +122,7 @@ const Register = () => {
         </div>
       </div>
       <div className="register-content">
+        {!otpSent ? (
         <form className="register-form animate-pop-in" onSubmit={handleSubmit} autoComplete="off">
           <h2>Register</h2>
           <div className="form-group">
@@ -186,9 +211,11 @@ const Register = () => {
               I agree to the <Link to="/terms">Terms</Link> & <Link to="/privacy-policy">Privacy Policy</Link>
             </label>
           </div>
+          
           <button className="register-btn" type="submit">
             Register
           </button>
+          
           <button
             className="google-btn"
             type="button"
@@ -213,6 +240,26 @@ const Register = () => {
             Already have an account? <Link to="/login">Login here</Link>
           </div>
         </form>
+        
+  // show registration form
+) : (
+  <div className="register-form">
+  <form onSubmit={handleVerifyOTP}>
+    <h2>Enter OTP</h2>
+    <div className="form-group">
+    <input
+      type="text"
+      placeholder="Enter 6-digit OTP"
+      value={otp}
+      onChange={(e) => setOtp(e.target.value)}
+      required
+    />
+    </div>
+    <button className="register-btn" type="submit">Verify OTP</button>
+  </form>
+  </div>
+)}
+
         <div className="register-info animate-slide-in">
           <h2>Why Join Trendora?</h2>
           <ul>

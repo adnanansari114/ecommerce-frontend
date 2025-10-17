@@ -1146,6 +1146,93 @@
     word-break: break-word; /* Allow long text to wrap */
     vertical-align: middle;
   }
+
+  .order-accept-main {
+    padding: 16px 8px;
+  }
+
+  .accept-container {
+    width: 85%;
+    padding: 16px;
+    box-shadow: none;
+  }
+
+  .addproduct-header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .order-accept-msg {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Make table scrollable horizontally */
+  .order-accept-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border: none;
+  }
+
+  .order-accept-table thead {
+    display: none; /* Hide header for mobile */
+  }
+
+  .order-accept-table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    padding: 0px;
+    align-items: start;
+  }
+
+  .order-accept-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    flex-direction: column;
+  }
+
+  .order-accept-table td:last-child {
+    border-bottom: none;
+  }
+
+  .order-accept-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    text-transform: capitalize;
+  }
+
+  /* Buttons responsive */
+  .accept-btn,
+  .cancel-btn {
+    width: 48%;
+    padding: 8px 0;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .order-accept-table td button {
+    display: inline-block;
+    margin: 5px;
+    width: 100%;
+    padding: 10px 25px;
+  }
+
+  .order-accept-empty {
+    font-size: 16px;
+    text-align: center;
+    padding: 20px 0;
+  }
 }
 
 .admin-contact-page p {
