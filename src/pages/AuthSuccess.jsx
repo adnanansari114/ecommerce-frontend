@@ -17,8 +17,11 @@ const AuthSuccess = () => {
         // But if backend returned user object in redirect, handle that too.
 
         // simple: navigate home
-        navigate('/');
-        window.location.reload();
+        setTimeout(() => {
+          navigate('/');
+          window.location.reload();  
+        }, 1000);
+        
       } else {
         navigate('/login');
       }
