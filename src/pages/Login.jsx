@@ -112,8 +112,12 @@ const Login = () => {
   }
 };
 
+// const handleGoogle = () => {
+//   const base = "https://ecommerce-backend-d3qz.onrender.com";
+//   window.location.href = `${base}/api/auth/google`;
+// };
 const handleGoogle = () => {
-  const base = "https://ecommerce-backend-d3qz.onrender.com";
+  const base = import.meta.env.VITE_API_BASE_URL || "https://ecommerce-backend-d3qz.onrender.com";
   window.location.href = `${base}/api/auth/google`;
 };
 

@@ -1,25 +1,34 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AuthSuccess = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const hash = window.location.hash; // #token=xyz
-    const token = hash.split("=")[1];
+    // read token from hash (after #)
+    const hash = window.location.hash; // e.g. #token=...
+    if (hash && hash.includes('token=')) {
+      const token = hash.split('token=')[1];
+      if (token) {
+        // store token + optionally fetch user details from backend
+        localStorage.setItem('token', token);
 
-    if (token) {
-      localStorage.setItem("token", token);
-      console.log("✅ Token saved:", token);
-      navigate("/"); // redirect to home page
+        // Optionally, call /api/auth/profile to get user details
+        // But if backend returned user object in redirect, handle that too.
+
+        // simple: navigate home
+        navigate('/');
+        window.location.reload();
+      } else {
+        navigate('/login');
+      }
     } else {
-      console.error("❌ Token not found in URL hash");
-      navigate("/login");
+      navigate('/login');
     }
   }, [navigate]);
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div style={{ padding: 40, textAlign: 'center' }}>
       <h2>Logging you in...</h2>
     </div>
   );
