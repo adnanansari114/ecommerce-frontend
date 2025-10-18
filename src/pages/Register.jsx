@@ -106,9 +106,9 @@ const handleVerifyOTP = async (e) => {
 
 
   const handleGoogle = () => {
-  const base = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  const base = "https://ecommerce-backend-d3qz.onrender.com";
   window.location.href = `${base}/api/auth/google`;
-}; 
+};
 
   return (
     <div className="register-main">
