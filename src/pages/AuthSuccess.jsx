@@ -1,21 +1,22 @@
-// src/pages/AuthSuccess.jsx
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthSuccess = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
-    // token URL hash se nikalna
-    const hash = window.location.hash;
-    const token = new URLSearchParams(hash.replace("#", "?")).get("token");
+    const hash = window.location.hash; // #token=xyz
+    const token = hash.split("=")[1];
 
     if (token) {
-      // localStorage me save karo
       localStorage.setItem("token", token);
-      // user ko home ya dashboard page pe bhej do
-      window.location.href = "/";
+      console.log("✅ Token saved:", token);
+      navigate("/"); // redirect to home page
     } else {
-      console.error("Token not found in URL!");
+      console.error("❌ Token not found in URL hash");
+      navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
