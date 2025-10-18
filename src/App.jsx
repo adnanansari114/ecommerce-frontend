@@ -1,6 +1,6 @@
 import React from 'react'
 // import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css'
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
@@ -42,7 +42,7 @@ import AuthSuccess from './pages/AuthSuccess.jsx';
 function App() {
   const adminToken = localStorage.getItem("adminToken");
   return (
-    <Router>
+    <BrowserRouter>
     <ErrorBoundary>
       {adminToken ? <AdminNavbar /> : <Navbar />}
       <Routes>
@@ -84,7 +84,7 @@ function App() {
       </Routes>
       <Footer />
       </ErrorBoundary>
-    </Router>
+    </BrowserRouter>
   )
 }
 

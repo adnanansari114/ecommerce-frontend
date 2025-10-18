@@ -1,41 +1,25 @@
+// src/pages/AuthSuccess.jsx
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const AuthSuccess = () => {
-  const navigate = useNavigate();
-
   useEffect(() => {
-  const hash = window.location.hash; // #token=xyz
-  if (hash.includes("token=")) {
-    const token = hash.split("token=")[1];
-    if (token) {
-      localStorage.setItem("token", token);
-      setTimeout(() => {
-        navigate("/");
-        window.location.reload();
-      }, 800);
-    } else {
-      navigate("/login");
-    }
-  } else {
-    navigate("/login");
-  }
-}, [navigate]);
+    // token URL hash se nikalna
+    const hash = window.location.hash;
+    const token = new URLSearchParams(hash.replace("#", "?")).get("token");
 
+    if (token) {
+      // localStorage me save karo
+      localStorage.setItem("token", token);
+      // user ko home ya dashboard page pe bhej do
+      window.location.href = "/";
+    } else {
+      console.error("Token not found in URL!");
+    }
+  }, []);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#f9f9f9",
-      }}
-    >
-      <h2 style={{ color: "#333" }}>Logging you in...</h2>
-      <p style={{ color: "#666" }}>Please wait a moment.</p>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>Logging you in...</h2>
     </div>
   );
 };
