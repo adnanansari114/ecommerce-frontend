@@ -5,23 +5,23 @@ const AuthSuccess = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const hash = window.location.hash; // e.g. #token=xyz
-    if (hash && hash.includes("token=")) {
-      const token = hash.split("token=")[1];
-      if (token) {
-        localStorage.setItem("token", token);
-
-        setTimeout(() => {
-          navigate("/");
-          window.location.reload();
-        }, 1000);
-      } else {
-        navigate("/login");
-      }
+  const hash = window.location.hash; // #token=xyz
+  if (hash.includes("token=")) {
+    const token = hash.split("token=")[1];
+    if (token) {
+      localStorage.setItem("token", token);
+      setTimeout(() => {
+        navigate("/");
+        window.location.reload();
+      }, 800);
     } else {
       navigate("/login");
     }
-  }, [navigate]);
+  } else {
+    navigate("/login");
+  }
+}, [navigate]);
+
 
   return (
     <div
