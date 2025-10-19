@@ -5,27 +5,18 @@ const AuthSuccess = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // read token from hash (after #)
-    const hash = window.location.hash; // e.g. #token=...
-    if (hash && hash.includes('token=')) {
-      const token = hash.split('token=')[1];
-      if (token) {
-        // store token + optionally fetch user details from backend
-        localStorage.setItem('token', token);
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get("token");
 
-        // Optionally, call /api/auth/profile to get user details
-        // But if backend returned user object in redirect, handle that too.
+  if (token) {
+    localStorage.setItem("token", token);
+    navigate("/");
+    window.location.reload();
+  } else {
+    navigate("/login");
+  }
+}, [navigate]);
 
-        // simple: navigate home
-        navigate('/');
-        window.location.reload();
-      } else {
-        navigate('/login');
-      }
-    } else {
-      navigate('/login');
-    }
-  }, [navigate]);
 
   return (
     <div style={{ padding: 40, textAlign: 'center' }}>
