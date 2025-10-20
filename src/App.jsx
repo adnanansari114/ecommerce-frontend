@@ -19,6 +19,7 @@ import OrderDetail from './admin/OrderDetail.jsx';
 import AllProduct from './admin/AllProduct.jsx';
 import AdminProduct from './admin/AdminProduct.jsx';
 import AdminContactMessages from './admin/AdminContactMessages.jsx';
+import AdminCategoryPage from './admin/AdminCategoryPage.jsx';
 import Checkout from './pages/Checkout.jsx';
 import Loader from './components/Loader.jsx';
 import ContactUs from './Privacy/ContactUs.jsx';
@@ -39,12 +40,17 @@ import OrderHistory from './user/OrderHistory.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import AuthSuccess from "./pages/AuthSuccess";  // ✅ ensure correct path
 
+import { FilterProvider } from './context/FilterContext.jsx';  // Add
+import NavbarFilter from './components/NavbarFilter.jsx';
+
 function App() {
   const adminToken = localStorage.getItem("adminToken");
   return (
     <BrowserRouter>
+    <FilterProvider>
     <ErrorBoundary>
       {adminToken ? <AdminNavbar /> : <Navbar />}
+      {!adminToken && <NavbarFilter />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -59,6 +65,7 @@ function App() {
         <Route path="/admin/edit-product/:productId" element={<EditProduct />} />
         <Route path="/admin/order-accept" element={<OrderAccept />} />
         <Route path="/admin/contact-messages" element={<AdminContactMessages />} />
+        <Route path="/admin/categories" element={<AdminCategoryPage />} />
         <Route path="/allproducts" element={<AllProduct />} />
         <Route path="/adminproduct/:id" element={<AdminProduct />} />
         <Route path="/order-confirmation" element={<OrderConfirmation />} />
@@ -84,6 +91,7 @@ function App() {
       </Routes>
       <Footer />
       </ErrorBoundary>
+      </FilterProvider>
     </BrowserRouter>
   )
 }

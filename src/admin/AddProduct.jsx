@@ -26,6 +26,21 @@ const AddProduct = () => {
   const [msg, setMsg] = useState("");
   const adminToken = localStorage.getItem("adminToken");
 
+  const [categories, setCategories] = useState([]);
+  const [subcategories, setSubcategories] = useState([]);
+
+  useEffect(() => {
+  API.get("/api/category/")
+    .then(res => {
+      console.log("Fetched categories:", res.data);
+      setCategories(res.data);
+    })
+    .catch(err => {
+      console.error("Error fetching categories:", err);
+      setCategories([]);
+    });
+}, []);
+
   // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -112,9 +127,38 @@ const AddProduct = () => {
         </div>
         <div className="addproduct-row">
           <div className="addproduct-col">
-            <label>Category *</label>
-            <input name="category" value={product.category} onChange={handleChange} required />
-          </div>
+              <label>Category *</label>
+              <select
+                name="category"
+                value={product.category}
+                onChange={(e) => {
+                  const selectedCategory = e.target.value;
+                  setProduct((prev) => ({ ...prev, category: selectedCategory, subcategory: "" }));
+                  const categoryObj = categories.find(c => c.name === selectedCategory);
+                  setSubcategories(categoryObj ? categoryObj.subcategories : []);
+                }}
+                required
+              >
+                <option value="">Select Category</option>
+                {categories.map((cat) => (
+                  <option key={cat._id} value={cat.name}>{cat.name}</option>
+                ))}
+              </select>
+            </div>
+            <div className="addproduct-col">
+              <label>Subcategory *</label>
+              <select
+                name="subcategory"
+                value={product.subcategory || ""}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Select Subcategory</option>
+                {subcategories.map((sub, idx) => (
+                  <option key={idx} value={sub}>{sub}</option>
+                ))}
+              </select>
+            </div>
           <div className="addproduct-col">
             <label>SKU *</label>
             <input name="sku" value={product.sku} onChange={handleChange} required />

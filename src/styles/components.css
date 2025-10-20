@@ -1,0 +1,135 @@
+/* Container for centering and consistent width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px; /* Left and right padding for container */
+}
+
+/* Main filter navbar box */
+.nav-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff; /* White background for navbar-like look */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 15px 20px; /* Top/bottom and left/right padding */
+  margin: 10px 0; /* Space above/below */
+}
+
+/* Left side: Filters (category, price, color, rating, search) */
+.nav-two-left {
+  flex: 1; /* Take available space */
+}
+
+.nav-two-left ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px; /* Space between filter items */
+}
+
+.nav-two-left li {
+  display: inline-block;
+}
+
+.nav-two-left select,
+.nav-two-left input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.nav-two-left select:focus,
+.nav-two-left input:focus {
+  border-color: #007bff; /* Highlight on focus */
+}
+
+/* Search input specific styling */
+.nav-two-left input[type="text"] {
+  width: 150px; /* Fixed width for search */
+}
+
+/* Right side: Filter count and reset button */
+.nav-two-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between count and button */
+}
+
+.nav-two-right p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.nav-two-right button {
+  padding: 8px 16px;
+  background-color: #dc3545; /* Red for reset */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.nav-two-right button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .nav-two {
+    flex-direction: row; /* Keep single row */
+    overflow-x: auto; /* Horizontal scroll */
+    white-space: nowrap; /* Prevent wrapping */
+    padding: 10px; /* Adjust padding for mobile */
+    scrollbar-width: thin; /* Firefox */
+  }
+
+  /* Hide scrollbar but keep scrollable */
+  .nav-two::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .nav-two-left ul {
+    display: flex;
+    flex-direction: row; /* Single row for filters */
+    gap: 10px; /* Smaller gap */
+  }
+
+  .nav-two-left li {
+    flex: 0 0 auto; /* Prevent shrinking */
+  }
+
+  .nav-two-left select,
+  .nav-two-left input {
+    font-size: 12px; /* Smaller font */
+    padding: 6px 8px; /* Smaller padding */
+  }
+
+  .nav-two-left input[type="text"] {
+    width: 120px; /* Smaller search input */
+  }
+
+  .nav-two-right {
+    flex: 0 0 auto; /* Prevent shrinking */
+    gap: 10px;
+  }
+
+  .nav-two-right p {
+    font-size: 12px;
+  }
+
+  .nav-two-right button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
