@@ -163,6 +163,15 @@ const handleGoogle = () => {
           <button className="register-btn" type="submit">
             Login
           </button>
+          <div className="forgot-password-link">
+            <button
+              type="button"
+              className="forgot-link"
+              onClick={() => navigate("/forgot-password")}
+            >
+              Forgot Password?
+            </button>
+          </div>
           <button
             className="google-btn"
             type="button"

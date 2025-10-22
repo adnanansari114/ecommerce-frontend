@@ -40,6 +40,8 @@ import OrderHistory from './user/OrderHistory.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import AuthSuccess from "./pages/AuthSuccess";  // ✅ ensure correct path
 
+import ForgotPassword from './pages/ForgotPassword.jsx';
+import ChangePassword from './user/ChangePassword.jsx';
 import { FilterProvider } from './context/FilterContext.jsx';  // Add
 import NavbarFilter from './components/NavbarFilter.jsx';
 
@@ -86,6 +88,8 @@ function App() {
         <Route path="/order-history" element={<OrderHistory />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/auth/success" element={<AuthSuccess />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
 
         {/* Add more routes here as needed */}
       </Routes>

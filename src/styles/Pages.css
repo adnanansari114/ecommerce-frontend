@@ -925,6 +925,43 @@
 
 
 
+.forgot-password-link {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.forgot-link {
+  background: none;
+  border: none;
+  color: #0066cc;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.forgot-link:hover {
+  color: #0052a3;
+}
+
+.resend-btn, .back-btn {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #0066cc;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.resend-btn:hover, .back-btn:hover {
+  background: #e9ecef;
+}
+
+
+
+
 
 /* Responsive */
 @media (max-width: 900px) {

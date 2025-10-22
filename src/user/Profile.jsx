@@ -132,6 +132,11 @@ const Profile = () => {
             </button>
           </li>
           <li>
+            <button className="profile-option-btn" onClick={() => navigate("/change-password")}>
+              🛒 Change Password
+            </button>
+          </li>
+          <li>
             <button className="profile-option-btn logout" onClick={handleLogout}>
               🚪 Logout
             </button>
