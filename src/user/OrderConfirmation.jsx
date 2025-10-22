@@ -5,7 +5,7 @@ import "../styles/Admin.css";
 const OrderConfirmation = () => {
   const { state } = useLocation();
   const order = state?.order;
-  
+
   const navigate = useNavigate();
 
   const handleTrackOrder = () => {

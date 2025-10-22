@@ -9,7 +9,7 @@ const AdminContactMessages = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await API.get("/api/contact"); // if protected, add token header
+        const res = await API.get("/api/contact"); 
         setMessages(res.data);
       } catch (err) {
         console.error("Failed to fetch messages:", err);

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Privacy.css"; // Import your CSS styles
+import "../styles/Privacy.css";
 
 const About = () => {
   return (

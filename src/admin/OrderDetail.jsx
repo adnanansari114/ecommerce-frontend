@@ -7,16 +7,13 @@ const OrderAccept = () => {
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Admin token check
-  const token = localStorage.getItem("adminToken"); // DIRECT!
+  const token = localStorage.getItem("adminToken"); 
   const isAdmin = !!token;
 
-  // Fetch all orders (admin)
   useEffect(() => {
   if (!isAdmin) return;
   API.get("/api/orders/admin/all")
     .then((res) => {
-      // Filter only accepted orders
       const acceptedOrders = Array.isArray(res.data)
         ? res.data.filter(order => order.status === "Accepted")
         : [];

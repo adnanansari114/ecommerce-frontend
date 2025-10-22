@@ -7,11 +7,9 @@ const OrderAccept = () => {
   const [msg, setMsg] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Admin token check
-  const token = localStorage.getItem("adminToken"); // DIRECT!
+  const token = localStorage.getItem("adminToken");
   const isAdmin = !!token;
 
-  // Fetch all orders (admin)
   useEffect(() => {
     if (!isAdmin) return;
     API.get("/api/orders/admin/all")
@@ -25,7 +23,6 @@ const OrderAccept = () => {
       });
   }, [isAdmin]);
 
-  // Accept or reject order
   const handleAction = async (orderId, status) => {
     try {
       await API.put(`/api/orders/admin/${orderId}`, { status });

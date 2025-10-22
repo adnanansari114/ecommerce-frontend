@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Add Link
+import { useNavigate, Link } from "react-router-dom";
 import { FilterContext } from "../context/FilterContext.jsx";
 import "../styles/Products.css";
 import API from "../utils/api";
@@ -11,12 +11,11 @@ const Products = () => {
   const [likeMsg, setLikeMsg] = useState("");
   const [showCartPopup, setShowCartPopup] = useState(false);
   const [popupProduct, setPopupProduct] = useState(null);
-  const [loading, setLoading] = useState(true); // Add for filters
+  const [loading, setLoading] = useState(true);
   const userToken = localStorage.getItem("token");
   const navigate = useNavigate();
-  const { filters } = useContext(FilterContext); // Add for filters
+  const { filters } = useContext(FilterContext);
 
-  // Fetch products with filters
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -31,8 +30,8 @@ const Products = () => {
         }).toString();
 
         const res = await API.get(`/api/product${params ? `?${params}` : ''}`);
-        setProducts(res.data || []); // Fallback to empty array
-        setLiked(Array(res.data?.length || 0).fill(false)); // Initialize liked
+        setProducts(res.data || []);
+        setLiked(Array(res.data?.length || 0).fill(false));
         setLoading(false);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -43,9 +42,8 @@ const Products = () => {
       }
     };
     fetchProducts();
-  }, [filters]); // Depend on filters for re-fetch
+  }, [filters]);
 
-  // Add to wishlist
   const handleLike = async (index, productId) => {
     if (!userToken) {
       setLikeMsg("Please login to add to wishlist.");
@@ -70,7 +68,6 @@ const Products = () => {
     setTimeout(() => setLikeMsg(""), 1500);
   };
 
-  // Add to cart
   const handleAddToCart = async (productId) => {
     if (!userToken) {
       setCartMsg("Please login to add to cart.");
@@ -90,7 +87,6 @@ const Products = () => {
     setTimeout(() => setCartMsg(""), 1500);
   };
 
-  // Show detail navigation
   const handleShowDetail = (productId) => {
     navigate(`/products/${productId}`);
   };
@@ -125,7 +121,6 @@ const Products = () => {
                 <span className="product-mrp">₹{product.mrp}</span>
               </div>
               <div className="product-desc">{product.description}</div>
-              {/* Add extra details from new version */}
               <div className="product-details">
                 <p>Category: {product.category}</p>
                 <p>Colors: {product.colorOptions?.join(', ') || 'N/A'}</p>
@@ -161,7 +156,6 @@ const Products = () => {
         </div>
       )}
 
-      {/* Cart Popup Modal */}
       {showCartPopup && popupProduct && (
         <div className="cart-popup-overlay">
           <div className="cart-popup">

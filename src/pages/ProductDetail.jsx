@@ -4,7 +4,7 @@ import "../styles/Products.css";
 import API from "../utils/api";
 
 const ProductDetail = () => {
-  const { id } = useParams(); // product id from URL
+  const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [mainImg, setMainImg] = useState("");
@@ -16,7 +16,6 @@ const ProductDetail = () => {
   const [liked, setLiked] = useState(false);
   const userToken = localStorage.getItem("token");
 
-  // Fetch product from backend API
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -32,7 +31,6 @@ const ProductDetail = () => {
     fetchProduct();
   }, [id]);
 
-  // Add to cart with quantity, color, size
   const handleAddToCart = async () => {
   if (!userToken) {
     setCartMsg("Please login to add to cart.");
@@ -53,7 +51,6 @@ const ProductDetail = () => {
   setTimeout(() => setCartMsg(""), 1500);
 };
 
-// Buy now
 const handleBuyNow = () => {
   if (!userToken) {
     setCartMsg("Please login to buy.");
@@ -72,7 +69,6 @@ const handleBuyNow = () => {
     },
   });
 };
-  // Add to wishlist
   const handleLike = async () => {
   if (!userToken) {
     setLikeMsg("Please login to add to wishlist.");
@@ -99,7 +95,6 @@ const handleBuyNow = () => {
   return (
     <div className="product-detail-main">
       <div className="product-detail-container">
-        {/* Left: Images */}
         <div className="product-detail-images">
           <div className="product-main-img-wrap">
             <img src={mainImg} alt="Main" className="product-main-img" />
@@ -116,7 +111,6 @@ const handleBuyNow = () => {
             ))}
           </div>
         </div>
-        {/* Right: Details */}
         <div className="product-detail-info">
           <h1 className="product-detail-title">{product.title}</h1>
           <div className="product-detail-brand">Brand: <b>{product.brand}</b></div>

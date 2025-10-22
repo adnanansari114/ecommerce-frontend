@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // Add these imports
+import { useNavigate, useLocation } from "react-router-dom"; 
 import { FilterContext } from "../context/FilterContext.jsx";
 import API from "../utils/api";
 import '../styles/components.css';
@@ -8,8 +8,8 @@ const NavbarFilter = () => {
   const { filters, updateFilters, resetFilters, filterCount } = useContext(FilterContext);
   const [categories, setCategories] = useState([]);
   const [colors, setColors] = useState([]);
-  const navigate = useNavigate(); // For redirection
-  const location = useLocation(); // Current path
+  const navigate = useNavigate(); 
+  const location = useLocation(); 
 
   useEffect(() => {
     API.get("/api/category")
@@ -43,7 +43,6 @@ const NavbarFilter = () => {
 
     updateFilters(newFilters);
 
-    // Redirect to /products if not already there and a filter is applied
     if (location.pathname !== '/products' && (value || name === 'search')) {
       navigate('/products');
     }
@@ -105,7 +104,7 @@ const NavbarFilter = () => {
           <button onClick={() => {
             resetFilters();
             if (location.pathname !== '/products') navigate('/products');
-          }}>Reset</button> {/* Reset also navigates if needed */}
+          }}>Reset</button> 
         </div>
       </div>
     </div>

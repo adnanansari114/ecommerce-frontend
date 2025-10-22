@@ -11,43 +11,39 @@ const Profile = () => {
   const navigate = useNavigate();
   const userToken = localStorage.getItem("token");
 
-  // Redirect to login if not logged in
   useEffect(() => {
     if (!userToken) {
       navigate("/login");
     }
   }, [userToken, navigate]);
 
-  // Fetch user profile from backend
   useEffect(() => {
-  const fetchProfile = async () => {
-    try {
-      const res = await API.get("/api/auth/profile");
-      setUser(res.data);
-      setPhotoPreview(res.data.profilePhoto || defaultAvatar);
-    } catch {
-      setUser(null);
-    }
-  };
-  if (userToken) fetchProfile();
-}, [userToken]);
+    const fetchProfile = async () => {
+      try {
+        const res = await API.get("/api/auth/profile");
+        setUser(res.data);
+        setPhotoPreview(res.data.profilePhoto || defaultAvatar);
+      } catch {
+        setUser(null);
+      }
+    };
+    if (userToken) fetchProfile();
+  }, [userToken]);
 
   const handlePhotoChange = async (e) => {
-  const file = e.target.files[0];
-  if (file && userToken) {
-    setPhotoPreview(URL.createObjectURL(file));
-    // Upload to backend
-    const formData = new FormData();
-    formData.append("profilePhoto", file);
-    try {
-      const res = await API.post("/api/auth/profile/photo", formData);
-      setUser(res.data.user);
-      setPhotoPreview(res.data.user.profilePhoto || defaultAvatar);
-    } catch {
-      // Optionally show error
+    const file = e.target.files[0];
+    if (file && userToken) {
+      setPhotoPreview(URL.createObjectURL(file));
+      const formData = new FormData();
+      formData.append("profilePhoto", file);
+      try {
+        const res = await API.post("/api/auth/profile/photo", formData);
+        setUser(res.data.user);
+        setPhotoPreview(res.data.user.profilePhoto || defaultAvatar);
+      } catch {
+      }
     }
-  }
-};
+  };
 
   const handleEdit = () => {
     navigate("/user/edit-profile");
@@ -69,7 +65,6 @@ const Profile = () => {
 
   return (
     <div className="profile-main profile-flex">
-      {/* Left: Profile Info */}
       <div className="profile-card profile-left">
         <div className="profile-photo-section">
           <img
@@ -112,7 +107,6 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* Right: User Options */}
       <div className="profile-options-card">
         <h3 className="profile-options-title">My Options</h3>
         <ul className="profile-options-list">

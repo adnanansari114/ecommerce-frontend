@@ -1,12 +1,8 @@
-/* Admin */
-
-
-
 .admin-navbar {
   background: #23272f;
   padding: 0;
   margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .admin-navbar ul {
@@ -56,19 +52,10 @@
   background: #d9363e;
 }
 
-
-
-
-
-/* All Product */ 
-
-
-/* Order Accept */
-
 .accept-container {
-  max-width: 1200px; /* control overall width */
+  max-width: 1200px;
   width: 70%;
-  margin: 0 auto; /* center horizontally */
+  margin: 0 auto;
   background: #fff;
   border-radius: 8px;
   padding: 24px;
@@ -103,7 +90,7 @@
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .order-accept-table th,
@@ -153,9 +140,6 @@
 
 
 
-
-/* Add Product */
-
 .addproduct-main {
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
   min-height: 100vh;
@@ -189,7 +173,7 @@
 .addproduct-form {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   max-width: 700px;
   margin: 0 auto;
   padding: 2.5rem 2rem 2rem 2rem;
@@ -215,7 +199,8 @@
   margin-bottom: 0.3rem;
   color: #007bff;
 }
-.addproduct-col input{
+
+.addproduct-col input {
   border: 2px solid #cce0ff;
   border-radius: 6px;
   padding: 0.6rem 0.9rem;
@@ -239,7 +224,7 @@
   margin-bottom: 0.5rem;
 }
 
-.addproduct-array-row input{
+.addproduct-array-row input {
   border: 2px solid #cce0ff;
   border-radius: 6px;
   padding: 0.3rem 0.9rem;
@@ -347,7 +332,6 @@
 }
 
 
-/* Admin Dashboard */
 .admin-dashboard-main {
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
   min-height: 100vh;
@@ -389,7 +373,7 @@
 .admin-dashboard-stat-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2rem 2.5rem;
   min-width: 170px;
   text-align: center;
@@ -426,7 +410,7 @@
   margin: 0 auto 2.5rem auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2rem 2rem 1.5rem 2rem;
   text-align: center;
 }
@@ -456,7 +440,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
 
@@ -572,7 +556,7 @@
 .admin-login-box {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 370px;
@@ -688,8 +672,6 @@
 
 
 
-
-/* EditProduct */
 .addproduct-main {
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
   min-height: 100vh;
@@ -723,7 +705,7 @@
 .addproduct-form {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   max-width: 700px;
   margin: 0 auto;
   padding: 2.5rem 2rem 2rem 2rem;
@@ -876,7 +858,7 @@
 .order-confirm-box {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 540px;
@@ -970,7 +952,7 @@
   margin-bottom: 1.2rem;
 }
 
-.order-confirm-breakdown > div {
+.order-confirm-breakdown>div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
@@ -1029,7 +1011,7 @@
 
 @media (max-width: 480px) {
   .admin-contact-page h1 {
-    font-size: 1.2rem; /* Even smaller for tiny screens */
+    font-size: 1.2rem;
   }
 
   .admin-contact-page p {
@@ -1038,30 +1020,34 @@
 
   .admin-table th,
   .admin-table td {
-    padding: 8px 10px; /* Further reduced padding */
-    font-size: 0.8rem; /* Smallest readable font */
-    min-width: 100px; /* Adjust column width */
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    min-width: 100px;
   }
 }
 
 
 @media (max-width: 900px) {
-  .admin-navbar{
+  .admin-navbar {
     padding-bottom: 165px;
   }
-  .admin-navbar ul{
+
+  .admin-navbar ul {
     flex-direction: column;
     align-items: start;
     padding: 25px 24px;
   }
-  .admin-navbar ul li{
+
+  .admin-navbar ul li {
     padding-bottom: 20px;
   }
+
   .admin-dashboard-stats {
     flex-direction: column;
     gap: 1.2rem;
     align-items: center;
   }
+
   .admin-dashboard-links-row {
     flex-direction: column;
     gap: 0.8rem;
@@ -1075,6 +1061,7 @@
   .addproduct-form {
     padding: 1.2rem 0.7rem;
   }
+
   .addproduct-row {
     flex-direction: column;
     gap: 0.5rem;
@@ -1084,6 +1071,7 @@
   .addproduct-form {
     padding: 1.2rem 0.7rem;
   }
+
   .addproduct-row {
     flex-direction: column;
     gap: 0.5rem;
@@ -1092,28 +1080,27 @@
 
 
   .admin-contact-page {
-    padding: 20px 15px; /* Reduced padding for mobile */
+    padding: 20px 15px;
     background-color: #f8f9fa;
     font-family: "Poppins", sans-serif;
   }
 
   .admin-contact-page h1 {
-    font-size: 1.5rem; /* Smaller heading */
+    font-size: 1.5rem;
     margin-bottom: 20px;
     gap: 8px;
-    text-align: center; /* Center for better mobile look */
-  }
-
-  .admin-contact-page p {
-    font-size: 0.9rem; /* Slightly smaller text */
     text-align: center;
   }
 
-  /* Table Styling for Mobile */
+  .admin-contact-page p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
   .admin-table {
-    display: block; /* Allow table to scroll */
-    overflow-x: auto; /* Horizontal scroll for wide table */
-    white-space: nowrap; /* Prevent text wrapping */
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   }
@@ -1125,9 +1112,9 @@
 
   .admin-table th,
   .admin-table td {
-    padding: 10px 12px; /* Reduced padding */
-    font-size: 0.85rem; /* Smaller font for mobile */
-    min-width: 120px; /* Ensure columns don’t collapse too much */
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    min-width: 120px;
   }
 
   .admin-table th {
@@ -1143,7 +1130,7 @@
   }
 
   .admin-table td {
-    word-break: break-word; /* Allow long text to wrap */
+    word-break: break-word;
     vertical-align: middle;
   }
 
@@ -1167,7 +1154,6 @@
     text-align: center;
   }
 
-  /* Make table scrollable horizontally */
   .order-accept-table {
     display: block;
     width: 100%;
@@ -1176,7 +1162,7 @@
   }
 
   .order-accept-table thead {
-    display: none; /* Hide header for mobile */
+    display: none;
   }
 
   .order-accept-table tr {
@@ -1185,7 +1171,7 @@
     margin-bottom: 16px;
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
     padding: 0px;
     align-items: start;
   }

@@ -25,14 +25,12 @@ const EditProfile = () => {
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState("");
 
-  // Redirect to login if not logged in
   useEffect(() => {
     if (!userToken) {
       navigate("/login");
     }
   }, [userToken, navigate]);
 
-  // Fetch user profile and prefill form
   useEffect(() => {
   const fetchProfile = async () => {
     try {
@@ -74,7 +72,6 @@ const EditProfile = () => {
   const file = e.target.files[0];
   if (file && userToken) {
     setPhotoPreview(URL.createObjectURL(file));
-    // Upload to backend
     const formData = new FormData();
     formData.append("profilePhoto", file);
     try {
@@ -94,7 +91,6 @@ const EditProfile = () => {
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-  // Send updated form data to backend API
   try {
     await API.put("/api/auth/profile", {
       name: form.name,

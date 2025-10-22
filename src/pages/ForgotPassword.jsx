@@ -4,7 +4,7 @@ import "../styles/Pages.css";
 import API from "../utils/api";
 
 const ForgotPassword = () => {
-  const [step, setStep] = useState(1); // 1: Email, 2: OTP, 3: New Password
+  const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     email: "",
     otp: "",
@@ -55,7 +55,6 @@ const ForgotPassword = () => {
 
     setLoading(true);
     try {
-      // For now, just proceed (actual verification happens in reset)
       setStep(3);
     } catch (err) {
       setError("Invalid OTP");
@@ -177,11 +176,11 @@ const ForgotPassword = () => {
           )}
 
           <button className="register-btn" type="submit" disabled={loading}>
-            {loading 
-              ? "Processing..." 
-              : step === 1 ? "Send OTP" 
-              : step === 2 ? "Verify OTP" 
-              : "Reset Password"
+            {loading
+              ? "Processing..."
+              : step === 1 ? "Send OTP"
+                : step === 2 ? "Verify OTP"
+                  : "Reset Password"
             }
           </button>
 

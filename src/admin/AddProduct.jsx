@@ -41,7 +41,6 @@ const AddProduct = () => {
     });
 }, []);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setProduct((prev) => ({
@@ -50,7 +49,6 @@ const AddProduct = () => {
     }));
   };
 
-  // Handle dynamic fields (images, colors, sizes)
   const handleArrayChange = (name, idx, value) => {
     setProduct((prev) => {
       const arr = [...prev[name]];
@@ -72,7 +70,6 @@ const AddProduct = () => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMsg("");
@@ -204,7 +201,6 @@ const AddProduct = () => {
             <textarea name="details" value={product.details} onChange={handleChange} />
           </div>
         </div>
-        {/* Images */}
         <div className="addproduct-array-field">
           <label>Product Images (URLs) *</label>
           {product.images.map((img, idx) => (
@@ -236,7 +232,6 @@ const AddProduct = () => {
           ))}
           <button type="button" className="add-btn" onClick={() => handleAddField("colorOptions")}>+ Add Color</button>
         </div>
-        {/* Sizes */}
         <div className="addproduct-array-field">
           <label>Size Options *</label>
           {product.sizeOptions.map((size, idx) => (

@@ -10,7 +10,6 @@ const images = [
 ];
 const userToken = localStorage.getItem("token");
 
-// Animated Counter Component
 const AnimatedCounter = ({ from, to, duration = 2000 }) => {
   const [count, setCount] = useState(from);
 
@@ -48,7 +47,6 @@ const Home = () => {
   const [trending, setTrending] = useState([]);
   const [randomProducts, setRandomProducts] = useState([]);
   const navigate = useNavigate();
-  // const userToken = localStorage.getItem("token");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -57,14 +55,12 @@ const Home = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch products from backend API
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await API.get("/api/product");
-        // const data = await res.json();
         setProducts(res.data);
-        setLiked(Array(res. data.length).fill(false));
+        setLiked(Array(res.data.length).fill(false));
         setTrending(res.data.slice(0, 3));
         setRandomProducts(shuffleArray(res.data).slice(0, 6));
       } catch {
@@ -84,49 +80,46 @@ const Home = () => {
     navigate(`/products/${productId}`);
   };
 
-  // Add to cart
   const handleAddToCart = async (productId) => {
-  if (!userToken) {
-    setCartMsg("Please login to add to cart.");
+    if (!userToken) {
+      setCartMsg("Please login to add to cart.");
+      setTimeout(() => setCartMsg(""), 1500);
+      return;
+    }
+    try {
+      await API.post("/api/cart", { productId, qty: 1 });
+      const prod = products.find(p => p._id === productId);
+      setPopupProduct(prod);
+      setShowCartPopup(true);
+      navigate("/cart");
+    } catch {
+      setCartMsg("Error adding to cart.");
+    }
     setTimeout(() => setCartMsg(""), 1500);
-    return;
-  }
-  try {
-    await API.post("/api/cart", { productId, qty: 1 });
-    const prod = products.find(p => p._id === productId);
-    setPopupProduct(prod);
-    setShowCartPopup(true);
-    navigate("/cart");
-  } catch {
-    setCartMsg("Error adding to cart.");
-  }
-  setTimeout(() => setCartMsg(""), 1500);
-};
+  };
 
-
-  // Add to wishlist
   const handleLike = async (index, productId) => {
-  if (!userToken) {
-    setLikeMsg("Please login to add to wishlist.");
+    if (!userToken) {
+      setLikeMsg("Please login to add to wishlist.");
+      setTimeout(() => setLikeMsg(""), 1500);
+      return;
+    }
+    const method = liked[index] ? "DELETE" : "POST";
+    const url = method === "POST" ? "/api/wishlist" : `/api/wishlist/${productId}`;
+
+    try {
+      await API[method.toLowerCase()](url, method === "POST" ? { productId } : {});
+      setLiked((prev) => {
+        const updated = [...prev];
+        updated[index] = !updated[index];
+        return updated;
+      });
+      setLikeMsg(!liked[index] ? "Added to wishlist!" : "Removed from wishlist.");
+    } catch {
+      setLikeMsg("Error updating wishlist.");
+    }
     setTimeout(() => setLikeMsg(""), 1500);
-    return;
-  }
-  const method = liked[index] ? "DELETE" : "POST";
-  const url = method === "POST" ? "/api/wishlist" : `/api/wishlist/${productId}`;
-  
-  try {
-    await API[method.toLowerCase()](url, method === "POST" ? { productId } : {});
-    setLiked((prev) => {
-      const updated = [...prev];
-      updated[index] = !updated[index];
-      return updated;
-    });
-    setLikeMsg(!liked[index] ? "Added to wishlist!" : "Removed from wishlist.");
-  } catch {
-    setLikeMsg("Error updating wishlist.");
-  }
-  setTimeout(() => setLikeMsg(""), 1500);
-};
+  };
 
   return (
     <>
@@ -145,7 +138,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Trending Products Section */}
       <div className="container trending-section">
         <h2 className="trending-title">Trending Products of the Week</h2>
         <div className="trending-cards">
@@ -198,7 +190,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Animated Stats Cover Section */}
       <div className="stats-cover">
         <div className="stats-container">
           <div className="stat-item">
@@ -240,7 +231,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* All Products Random Scrollable Section */}
       <div className="container all-products-section">
         <h2 className="trending-title">All Products</h2>
         <div className="all-products-scroll">

@@ -51,7 +51,6 @@
 }
 
 
-/* Trending Products Section */
 .trending-section {
   margin: 3rem auto 2rem auto;
   max-width: 1200px;
@@ -81,7 +80,7 @@
 .product-card {
   background: #007bd44f;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   width: 300px;
   display: flex;
@@ -200,9 +199,6 @@
 }
 
 
-
-
-/* Animated Stats Cover Section */
 .stats-cover {
   width: 100%;
   background: linear-gradient(90deg, #f8fafc 60%, #e3f0ff 100%);
@@ -221,7 +217,7 @@
   max-width: 1100px;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   padding: 2rem 1.5rem;
 }
 
@@ -236,8 +232,15 @@
 }
 
 @keyframes statFadeIn {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .stat-icon {
@@ -250,7 +253,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
   margin-top: -2.2rem;
   transition: transform 0.2s;
 }
@@ -279,9 +282,6 @@
 }
 
 
-
-
-/* All Products Random Scrollable Section */
 .all-products-section {
   margin: 3rem auto 2rem auto;
   max-width: 1200px;
@@ -397,7 +397,7 @@
 .register-form {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2rem 2rem 1.5rem 2rem;
   min-width: 320px;
   max-width: 400px;
@@ -418,6 +418,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .form-groups {
   margin-bottom: 1.1rem;
   display: flex;
@@ -521,8 +522,13 @@
 }
 
 @keyframes google-spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .register-error {
@@ -556,7 +562,7 @@
 .register-info {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2rem 2rem 1.5rem 2rem;
   min-width: 260px;
   max-width: 320px;
@@ -597,9 +603,6 @@
   animation: heart-beat 1.2s infinite alternate;
 }
 
-
-
-
 /* Chackout */
 .checkout-main {
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
@@ -630,7 +633,7 @@
   flex: 2 1 400px;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2.2rem 2rem 1.5rem 2rem;
   min-width: 320px;
   margin-bottom: 2rem;
@@ -799,7 +802,7 @@
   flex: 1 1 320px;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,123,255,0.07);
+  box-shadow: 0 4px 24px rgba(0, 123, 255, 0.07);
   padding: 2.2rem 2rem 1.5rem 2rem;
   min-width: 280px;
   margin-bottom: 2rem;
@@ -885,7 +888,7 @@
   margin-bottom: 1.2rem;
 }
 
-.checkout-summary-breakdown > div {
+.checkout-summary-breakdown>div {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
@@ -922,9 +925,6 @@
   text-align: center;
 }
 
-
-
-
 .forgot-password-link {
   text-align: left;
   margin-bottom: 1rem;
@@ -944,7 +944,8 @@
   color: #0052a3;
 }
 
-.resend-btn, .back-btn {
+.resend-btn,
+.back-btn {
   background: #f8f9fa;
   border: 1px solid #dee2e6;
   color: #0066cc;
@@ -955,13 +956,10 @@
   transition: all 0.2s;
 }
 
-.resend-btn:hover, .back-btn:hover {
+.resend-btn:hover,
+.back-btn:hover {
   background: #e9ecef;
 }
-
-
-
-
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -970,6 +968,7 @@
     gap: 2rem;
     padding: 1.5rem 0.5rem;
   }
+
   .stat-item {
     min-width: 120px;
   }
@@ -978,6 +977,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1.2rem;
   }
+
   .register-content {
     flex-direction: column;
     align-items: center;
@@ -990,6 +990,7 @@
     gap: 1.5rem;
     padding: 0 0.5rem;
   }
+
   .checkout-form,
   .checkout-summary {
     min-width: 0;
@@ -1005,32 +1006,38 @@
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px){
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   .cover-content {
     margin-left: 3vw;
     margin-top: 3rem;
     padding: 0.5rem 1rem;
     max-width: 90vw;
   }
-  .register-form{
+
+  .register-form {
     min-width: 250px;
   }
+
   .cover-content h1 {
     font-size: 1.8rem;
   }
+
   .cover-content p {
     font-size: 1rem;
     margin-bottom: 1.2rem;
   }
+
   .trending-cards {
     flex-direction: column;
     gap: 1.5rem;
     align-items: center;
   }
-  .product-card{
+
+  .product-card {
     width: 100%;
   }
-  .trending-title{
+
+  .trending-title {
     padding: 0px 5px;
   }
 }

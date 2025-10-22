@@ -14,7 +14,6 @@ const PrivacyPolicy = () => {
         </p>
       </div>
 
-      {/* Navigation Row */}
       <div className="privacy-nav-row">
         <Link to="/contact" className="privacy-nav-btn">Contact Us</Link>
         <Link to="/faq" className="privacy-nav-btn">FAQ</Link>

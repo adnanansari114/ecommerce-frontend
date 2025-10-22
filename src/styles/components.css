@@ -1,26 +1,23 @@
-/* Container for centering and consistent width */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px; /* Left and right padding for container */
+  padding: 0 15px;
 }
 
-/* Main filter navbar box */
 .nav-two {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff; /* White background for navbar-like look */
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  padding: 15px 20px; /* Top/bottom and left/right padding */
-  margin: 10px 0; /* Space above/below */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  margin: 10px 0;
 }
 
-/* Left side: Filters (category, price, color, rating, search) */
 .nav-two-left {
-  flex: 1; /* Take available space */
+  flex: 1;
 }
 
 .nav-two-left ul {
@@ -29,7 +26,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 15px; /* Space between filter items */
+  gap: 15px;
 }
 
 .nav-two-left li {
@@ -48,19 +45,17 @@
 
 .nav-two-left select:focus,
 .nav-two-left input:focus {
-  border-color: #007bff; /* Highlight on focus */
+  border-color: #007bff;
 }
 
-/* Search input specific styling */
 .nav-two-left input[type="text"] {
-  width: 150px; /* Fixed width for search */
+  width: 150px;
 }
 
-/* Right side: Filter count and reset button */
 .nav-two-right {
   display: flex;
   align-items: center;
-  gap: 15px; /* Space between count and button */
+  gap: 15px;
 }
 
 .nav-two-right p {
@@ -71,7 +66,7 @@
 
 .nav-two-right button {
   padding: 8px 16px;
-  background-color: #dc3545; /* Red for reset */
+  background-color: #dc3545;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -81,46 +76,45 @@
 }
 
 .nav-two-right button:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333;
 }
 
 /* Mobile View */
 @media (max-width: 768px) {
   .nav-two {
-    flex-direction: row; /* Keep single row */
-    overflow-x: auto; /* Horizontal scroll */
-    white-space: nowrap; /* Prevent wrapping */
-    padding: 10px; /* Adjust padding for mobile */
-    scrollbar-width: thin; /* Firefox */
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    scrollbar-width: thin;
   }
 
-  /* Hide scrollbar but keep scrollable */
   .nav-two::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
   }
 
   .nav-two-left ul {
     display: flex;
-    flex-direction: row; /* Single row for filters */
-    gap: 10px; /* Smaller gap */
+    flex-direction: row;
+    gap: 10px;
   }
 
   .nav-two-left li {
-    flex: 0 0 auto; /* Prevent shrinking */
+    flex: 0 0 auto;
   }
 
   .nav-two-left select,
   .nav-two-left input {
-    font-size: 12px; /* Smaller font */
-    padding: 6px 8px; /* Smaller padding */
+    font-size: 12px;
+    padding: 6px 8px;
   }
 
   .nav-two-left input[type="text"] {
-    width: 120px; /* Smaller search input */
+    width: 120px;
   }
 
   .nav-two-right {
-    flex: 0 0 auto; /* Prevent shrinking */
+    flex: 0 0 auto;
     gap: 10px;
   }
 

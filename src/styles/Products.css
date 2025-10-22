@@ -1,11 +1,8 @@
-/* Product */
-#view-detail-btn{
+#view-detail-btn {
   display: flex;
   justify-content: space-evenly;
 }
 
-
-/* Trending Products Section */
 .trending-section {
   margin: 3rem auto 2rem auto;
   max-width: 1200px;
@@ -35,7 +32,7 @@
 .product-cards {
   background: #007bd44f;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   width: 300px;
   display: flex;
@@ -153,12 +150,6 @@
   color: #e63946;
 }
 
-
-
-
-
-
-/* Product Detail */
 .product-detail-main {
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
   min-height: 100vh;
@@ -173,7 +164,7 @@
   margin: 0 auto;
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2.5rem 2rem;
   flex-wrap: wrap;
 }
@@ -196,7 +187,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.2rem;
-  box-shadow: 0 2px 12px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 12px rgba(0, 123, 255, 0.07);
 }
 
 .product-main-img {
@@ -400,12 +391,13 @@
     padding: 1.2rem 0.5rem;
     gap: 1.5rem;
   }
+
   .product-detail-info {
     padding-left: 0;
   }
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px){
+@media only screen and (min-width: 320px) and (max-width: 480px) {
   .products-grid {
     grid-template-columns: 1fr;
     padding: 0 22px;
@@ -416,6 +408,7 @@
     width: 80%;
     padding: 1.2rem 1rem 1rem 1rem;
   }
+
   .product-cards {
     width: 100%;
   }
@@ -427,25 +420,32 @@
   .trending-cards {
     gap: 1.5rem;
   }
-  .product-detail-info{
+
+  .product-detail-info {
     padding: 0px 0px;
     margin: 0px 10px;
     min-width: 100%;
     max-width: 100%;
   }
-  .like-btn{
+
+  .like-btn {
     margin: 0px;
   }
-  .product-detail-actions{
+
+  .product-detail-actions {
     gap: 9px;
   }
-  .detail-cart-btn, .detail-buy-btn{
+
+  .detail-cart-btn,
+  .detail-buy-btn {
     padding: 0.6rem 12px;
   }
-  .product-detail-container{
-      max-width: 300px;
+
+  .product-detail-container {
+    max-width: 300px;
   }
-  .product-detail-images{
+
+  .product-detail-images {
     max-width: 100%;
     min-width: 100%;
   }

@@ -31,7 +31,6 @@ const AdminNavbar = () => {
         <li>
           <Link to="/admin/categories">Add Category</Link>
         </li>
-        {/* Add more admin pages here if needed */}
         <li style={{ float: "right" }}>
           <button onClick={handleLogout}>Logout</button>
         </li>

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "../styles/Admin.css";
 import API from "../utils/api";
 
-// Simple admin auth check using localStorage
 function getAdminToken() {
   return localStorage.getItem("adminToken");
 }

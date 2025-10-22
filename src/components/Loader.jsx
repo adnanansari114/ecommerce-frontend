@@ -3,7 +3,7 @@ import "../styles/Navbar.css";
 
 const Loader = ({
   message = "Preparing your experience...",
-  type = "spinner", // spinner | dots | bar | skeleton
+  type = "spinner", 
 }) => (
   <div className="loader-main">
     <div className="loader-box">

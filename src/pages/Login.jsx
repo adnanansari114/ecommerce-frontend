@@ -22,104 +22,53 @@ const Login = () => {
     }));
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setError("");
-  //   if (!form.usernameOrEmail || !form.password) {
-  //     setError("Please fill all required fields.");
-  //     return;
-  //   }
-  //   if (form.password.length < 6) {
-  //     setError("Password must be at least 6 characters.");
-  //     return;
-  //   }
-
-  //   // API call
-  //   try {
-  //     const res = await fetch("/api/auth/login", {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({
-  //         usernameOrEmail: form.usernameOrEmail,
-  //         password: form.password,
-  //       }),
-  //     });
-  //     const data = await res.json();
-  //     if (!res.ok) {
-  //       setError(data.msg || "Login failed.");
-  //       return;
-  //     }
-  //     // Save token to localStorage
-  //     localStorage.setItem("token", data.token);
-  //     localStorage.setItem("user", JSON.stringify(data.user));
-  //     setSubmitted(true);
-  //     setTimeout(() => {
-  //       setSubmitted(false);
-  //       navigate("/");
-  //       window.location.reload(); // To update Navbar
-  //     }, 1000);
-  //     setForm({
-  //       usernameOrEmail: "",
-  //       password: "",
-  //     });
-  //   } catch (err) {
-  //     setError("Server error. Please try again.");
-  //   }
-  // };
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError("");
-  setMsg("");
-  
-  // VALIDATION FIRST!
-  if (!form.usernameOrEmail || !form.password) {
-    setError("Please fill all required fields.");
-    return;
-  }
-  
-  // Admin login check
-  if (form.usernameOrEmail === "admin@trendora.com") {
-    try {
-      const res = await API.post("/api/auth/admin/login", { 
-        email: form.usernameOrEmail, 
-        password: form.password 
-      });
-      localStorage.setItem("adminToken", res.data.token);
-      setSubmitted(true);  // SUCCESS MSG!
-      setTimeout(() => navigate("/admin/dashboard"), 1000);
-    } catch (err) {
-      setError(err.response?.data?.msg || "Admin login failed.");  // ERROR DIV!
-    }
-  } else {
-    // Normal user login
-    try {
-      const res = await API.post("/api/auth/login", {
-        usernameOrEmail: form.usernameOrEmail,
-        password: form.password,
-      });
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        navigate("/");
-        window.location.reload();
-      }, 1000);
-      setForm({ usernameOrEmail: "", password: "" });
-    } catch (err) {
-      setError(err.response?.data?.msg || "Login failed.");
-    }
-  }
-};
+    e.preventDefault();
+    setError("");
+    setMsg("");
 
-// const handleGoogle = () => {
-//   const base = "https://ecommerce-backend-d3qz.onrender.com";
-//   window.location.href = `${base}/api/auth/google`;
-// };
-const handleGoogle = () => {
-  const base = import.meta.env.VITE_API_BASE_URL || "https://ecommerce-backend-d3qz.onrender.com";
-  window.location.href = `${base}/api/auth/google`;
-};
+    if (!form.usernameOrEmail || !form.password) {
+      setError("Please fill all required fields.");
+      return;
+    }
+
+    if (form.usernameOrEmail === "admin@trendora.com") {
+      try {
+        const res = await API.post("/api/auth/admin/login", {
+          email: form.usernameOrEmail,
+          password: form.password
+        });
+        localStorage.setItem("adminToken", res.data.token);
+        setSubmitted(true);
+        setTimeout(() => navigate("/admin/dashboard"), 1000);
+      } catch (err) {
+        setError(err.response?.data?.msg || "Admin login failed.");
+      }
+    } else {
+      try {
+        const res = await API.post("/api/auth/login", {
+          usernameOrEmail: form.usernameOrEmail,
+          password: form.password,
+        });
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          navigate("/");
+          window.location.reload();
+        }, 1000);
+        setForm({ usernameOrEmail: "", password: "" });
+      } catch (err) {
+        setError(err.response?.data?.msg || "Login failed.");
+      }
+    }
+  };
+
+  const handleGoogle = () => {
+    const base = import.meta.env.VITE_API_BASE_URL || "https://ecommerce-backend-d3qz.onrender.com";
+    window.location.href = `${base}/api/auth/google`;
+  };
 
 
   return (

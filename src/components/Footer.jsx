@@ -5,7 +5,6 @@ import "../styles/Navbar.css";
 const Footer = () => (
   <footer className="main-footer">
     <div className="footer-container">
-      {/* Part 1: Main Links */}
       <div className="footer-section">
         <h4>Pages</h4>
         <ul>
@@ -15,7 +14,6 @@ const Footer = () => (
           <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
-      {/* Part 2: Social Media */}
       <div className="footer-section">
         <h4>Connect</h4>
         <div className="footer-socials">
@@ -33,7 +31,6 @@ const Footer = () => (
           </a>
         </div>
       </div>
-      {/* Part 3: Privacy Links */}
       <div className="footer-section">
         <h4>Policies</h4>
         <ul>
@@ -43,7 +40,6 @@ const Footer = () => (
           <li><Link to="/terms">Terms & Conditions</Link></li>
         </ul>
       </div>
-      {/* Part 4: Custom/Extra */}
       <div className="footer-section">
         <h4>Made By</h4>
         <p>

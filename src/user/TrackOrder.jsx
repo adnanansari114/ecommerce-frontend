@@ -9,29 +9,26 @@ const TrackOrder = () => {
   const [msg, setMsg] = useState("");
   const userToken = localStorage.getItem("token");
   const navigate = useNavigate();
-  const { id } = useParams(); // order id from URL
-  
+  const { id } = useParams();
 
-  // Redirect to login if not logged in
   useEffect(() => {
     if (!userToken) {
       navigate("/login");
     }
   }, [userToken, navigate]);
 
-  // Fetch order detail from backend
   useEffect(() => {
-  const fetchOrder = async () => {
-    try {
-      const url = id ? `/api/orders/${id}` : `/api/orders`;
-      const res = await API.get(url);
-      setOrder(Array.isArray(res.data) ? res.data[0] : res.data);
-    } catch {
-      setMsg("Order not found.");
-    }
-  };
-  if (userToken) fetchOrder();
-}, [userToken, id]);
+    const fetchOrder = async () => {
+      try {
+        const url = id ? `/api/orders/${id}` : `/api/orders`;
+        const res = await API.get(url);
+        setOrder(Array.isArray(res.data) ? res.data[0] : res.data);
+      } catch {
+        setMsg("Order not found.");
+      }
+    };
+    if (userToken) fetchOrder();
+  }, [userToken, id]);
 
   if (!order) {
     return (
@@ -41,7 +38,6 @@ const TrackOrder = () => {
     );
   }
 
-  // Find current step
   const currentStep = order.statusHistory
     ? order.statusHistory.findIndex(h => h.status === order.status)
     : -1;
@@ -96,8 +92,8 @@ const TrackOrder = () => {
                   {idx < currentStep
                     ? "✔"
                     : idx === currentStep
-                    ? "⏳"
-                    : ""}
+                      ? "⏳"
+                      : ""}
                 </div>
                 <div className="trackorder-step-info">
                   <div className="trackorder-step-status">{step.status}</div>

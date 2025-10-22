@@ -13,72 +13,66 @@ const Buy = () => {
   const { state } = useLocation();
   const productFromState = state?.product || null;
 
-  // Redirect to login if not logged in  
   useEffect(() => {
     if (!userToken) {
       navigate("/login");
     }
   }, [userToken, navigate]);
 
-  // Add product from ProductDetail if present, then fetch cart
   useEffect(() => {
-  const addAndFetchCart = async () => {
-    if (productFromState) {
-      // Add to cart
-      await API.post("/api/cart", {
-        productId: productFromState._id,
-        qty: productFromState.qty,
-        color: productFromState.selectedColor,
-        size: productFromState.selectedSize,
-      });
-    }
-    // Now fetch cart
-    try {
-      const res = await API.get("/api/cart");
-      setCart(res.data);
-    } catch {
-      setCart({ items: [] });
-    }
-    setLoading(false);
-  };
-  if (userToken) addAndFetchCart();
-}, [userToken, productFromState]);
+    const addAndFetchCart = async () => {
+      if (productFromState) {
+        await API.post("/api/cart", {
+          productId: productFromState._id,
+          qty: productFromState.qty,
+          color: productFromState.selectedColor,
+          size: productFromState.selectedSize,
+        });
+      }
+      try {
+        const res = await API.get("/api/cart");
+        setCart(res.data);
+      } catch {
+        setCart({ items: [] });
+      }
+      setLoading(false);
+    };
+    if (userToken) addAndFetchCart();
+  }, [userToken, productFromState]);
 
-  // Calculate total
   const total =
     cart && cart.items
       ? cart.items.reduce(
-          (sum, item) =>
-            sum +
-            (item.product && item.product.price
-              ? item.product.price * item.qty
-              : 0),
-          0
-        )
+        (sum, item) =>
+          sum +
+          (item.product && item.product.price
+            ? item.product.price * item.qty
+            : 0),
+        0
+      )
       : 0;
 
-  // Confirm buy/order
   const handleConfirmBuy = async () => {
-  try {
-    const res = await API.post("/api/orders", {
-      items: cart.items.map((item) => ({
-        productId: item.product._id,
-        qty: item.qty,
-        color: item.color,
-        size: item.size,
-      })),
-    });
-    setMsg("Order placed successfully!");
-    setTimeout(() => {
-      navigate("/order-confirmation", {
-        state: { order: res.data.order }
+    try {
+      const res = await API.post("/api/orders", {
+        items: cart.items.map((item) => ({
+          productId: item.product._id,
+          qty: item.qty,
+          color: item.color,
+          size: item.size,
+        })),
       });
-    }, 1200);
-  } catch {
-    setMsg("Failed to place order.");
-  }
-  setTimeout(() => setMsg(""), 1200);
-};
+      setMsg("Order placed successfully!");
+      setTimeout(() => {
+        navigate("/order-confirmation", {
+          state: { order: res.data.order }
+        });
+      }, 1200);
+    } catch {
+      setMsg("Failed to place order.");
+    }
+    setTimeout(() => setMsg(""), 1200);
+  };
 
   if (loading) {
     return (
@@ -119,12 +113,12 @@ const Buy = () => {
                     </div>
                   </div>
                   <div className="buy-sec">
-                  <div className="buy-item-price">
-                    ₹{item.product ? item.product.price : 0}
-                  </div>
-                  <div className="buy-item-qty">
-                    Qty: {item.qty}
-                  </div>
+                    <div className="buy-item-price">
+                      ₹{item.product ? item.product.price : 0}
+                    </div>
+                    <div className="buy-item-qty">
+                      Qty: {item.qty}
+                    </div>
                   </div>
                   <div className="buy-item-total">
                     ₹

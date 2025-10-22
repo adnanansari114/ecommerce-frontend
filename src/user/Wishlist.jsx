@@ -10,51 +10,47 @@ const Wishlist = () => {
   const userToken = localStorage.getItem("token");
   const navigate = useNavigate();
 
-  // Redirect to login if not logged in
   useEffect(() => {
     if (!userToken) {
       navigate("/login");
     }
   }, [userToken, navigate]);
 
-  // Fetch wishlist from backend
   useEffect(() => {
-  const fetchWishlist = async () => {
-    try {
-      const res = await API.get("/api/wishlist");
-      setWishlist(res.data.items || []);
-    } catch {
-      setWishlist([]);
-    }
-  };
-  if (userToken) fetchWishlist();
-}, [userToken]);
+    const fetchWishlist = async () => {
+      try {
+        const res = await API.get("/api/wishlist");
+        setWishlist(res.data.items || []);
+      } catch {
+        setWishlist([]);
+      }
+    };
+    if (userToken) fetchWishlist();
+  }, [userToken]);
 
-  // Remove from wishlist
   const handleRemove = async (productId) => {
-  try {
-    await API.delete(`/api/wishlist/${productId}`);
-    setWishlist((prev) => prev.filter((item) => item._id !== productId));
-    setMsg("Removed from wishlist.");
-  } catch {
-    setMsg("Failed to remove.");
-  }
-  setTimeout(() => setMsg(""), 1200);
-};
+    try {
+      await API.delete(`/api/wishlist/${productId}`);
+      setWishlist((prev) => prev.filter((item) => item._id !== productId));
+      setMsg("Removed from wishlist.");
+    } catch {
+      setMsg("Failed to remove.");
+    }
+    setTimeout(() => setMsg(""), 1200);
+  };
 
-  // Add to cart
   const handleAddToCart = async (productId, inStock) => {
-  if (!inStock) return;
-  try {
-    await API.post("/api/cart", { productId, qty: 1 });
-    setMsg("Added to cart!");
-    handleRemove(productId);
-    navigate("/cart");
-  } catch {
-    setMsg("Failed to add to cart.");
-  }
-  setTimeout(() => setMsg(""), 1200);
-};
+    if (!inStock) return;
+    try {
+      await API.post("/api/cart", { productId, qty: 1 });
+      setMsg("Added to cart!");
+      handleRemove(productId);
+      navigate("/cart");
+    } catch {
+      setMsg("Failed to add to cart.");
+    }
+    setTimeout(() => setMsg(""), 1200);
+  };
 
   return (
     <div className="wishlist-main">

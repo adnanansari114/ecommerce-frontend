@@ -106,7 +106,6 @@ const Checkout = () => {
     <div className="checkout-main">
       <h1 className="checkout-title">Checkout</h1>
       <div className="checkout-container">
-        {/* Left: Customer Info, Shipping, Payment */}
         <form className="checkout-form" onSubmit={handlePlaceOrder}>
           <section className="checkout-section">
             <h2>Customer Information</h2>
@@ -301,7 +300,6 @@ const Checkout = () => {
             Need help? <a href="mailto:support@trendora.com">Contact Support</a>
           </div>
         </form>
-        {/* Right: Order Summary */}
         <div className="checkout-summary">
           <h2>Order Summary</h2>
           <div className="checkout-summary-list">

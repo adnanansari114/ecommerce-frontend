@@ -1,6 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home.jsx';
@@ -38,11 +37,10 @@ import UserDashboard from './user/UserDashboard.jsx';
 import Wishlist from './user/Wishlist.jsx';
 import OrderHistory from './user/OrderHistory.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
-import AuthSuccess from "./pages/AuthSuccess";  // ✅ ensure correct path
-
+import AuthSuccess from "./pages/AuthSuccess";  
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import ChangePassword from './user/ChangePassword.jsx';
-import { FilterProvider } from './context/FilterContext.jsx';  // Add
+import { FilterProvider } from './context/FilterContext.jsx'; 
 import NavbarFilter from './components/NavbarFilter.jsx';
 
 function App() {
@@ -91,7 +89,6 @@ function App() {
         <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
 
-        {/* Add more routes here as needed */}
       </Routes>
       <Footer />
       </ErrorBoundary>

@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/Admin.css";
 import API from "../utils/api";
 
-// Replace with your real admin check (e.g., from context or Redux)
 const isAdmin = true;
 
 const EditProduct = () => {
@@ -76,7 +75,6 @@ const EditProduct = () => {
     );
   }
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setProduct((prev) => ({
@@ -85,7 +83,6 @@ const EditProduct = () => {
     }));
   };
 
-  // Handle dynamic fields (images, colors, sizes)
   const handleArrayChange = (name, idx, value) => {
     setProduct((prev) => {
       const arr = [...prev[name]];
@@ -107,7 +104,6 @@ const EditProduct = () => {
     });
   };
 
-  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -127,11 +123,9 @@ const EditProduct = () => {
       formData.append("description", product.description);
       formData.append("details", product.details);
 
-      // Only these arrays as per model
       product.colorOptions.forEach((color) => formData.append("colorOptions[]", color));
       product.sizeOptions.forEach((size) => formData.append("sizeOptions[]", size));
 
-      // Images: handle both URLs and files
       product.images.forEach((img) => {
         if (img instanceof File) {
           formData.append("images", img);
@@ -223,7 +217,6 @@ const EditProduct = () => {
               <textarea name="details" value={product.details} onChange={handleChange} />
             </div>
           </div>
-          {/* Images */}
           <div className="addproduct-array-field">
             <label>Product Images (URLs or Upload) *</label>
             {product.images.map((img, idx) => (
@@ -247,7 +240,6 @@ const EditProduct = () => {
             ))}
             <button type="button" className="add-btn" onClick={() => handleAddField("images")}>+ Add Image</button>
           </div>
-          {/* Colors */}
           <div className="addproduct-array-field">
             <label>Color Options *</label>
             {product.colorOptions.map((color, idx) => (
@@ -263,7 +255,6 @@ const EditProduct = () => {
             ))}
             <button type="button" className="add-btn" onClick={() => handleAddField("colorOptions")}>+ Add Color</button>
           </div>
-          {/* Sizes */}
           <div className="addproduct-array-field">
             <label>Size Options *</label>
             {product.sizeOptions.map((size, idx) => (
@@ -299,4 +290,3 @@ const EditProduct = () => {
 }
 
 export default EditProduct;
-// Note: Ensure you have the necessary CSS styles in Admin.css for the classes used here.

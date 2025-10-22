@@ -35,10 +35,9 @@ const Register = () => {
     e.preventDefault();
     setError("");
     try {
-      // First Step — send OTP
       const res = await API.post("/api/auth/register", form);
       setOtpSent(true);
-      setResendSuccess(false); // Reset resend success message
+      setResendSuccess(false); 
     } catch (err) {
       setError(err.response?.data?.msg || "Error sending OTP");
     }
@@ -65,7 +64,6 @@ const Register = () => {
     }
   };
 
-  // NEW: Resend OTP Function
   const handleResendOTP = async (e) => {
     e.preventDefault();
     setError("");
@@ -239,7 +237,7 @@ const Register = () => {
                   type="text"
                   placeholder="Enter 6-digit OTP"
                   value={otp}
-                  onChange={(e) => setOtp(e.target.value)}  // ✅ FIXED - Ab text+number dono allow
+                  onChange={(e) => setOtp(e.target.value)} 
                   maxLength="6"
                   required
                   autoFocus
@@ -248,7 +246,6 @@ const Register = () => {
                 <small>Check your email inbox (and spam folder)</small>
               </div>
 
-              {/* RESEND OTP BUTTON */}
               <div className="form-group">
                 <button
                   type="button"

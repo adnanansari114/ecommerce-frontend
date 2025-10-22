@@ -1,5 +1,3 @@
-/* Profile */
-
 .profile-main {
   min-height: 100vh;
   background: linear-gradient(120deg, #f8fafc 60%, #e3f0ff 100%);
@@ -13,7 +11,7 @@
 .profile-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 420px;
@@ -38,7 +36,7 @@
   border: 4px solid #e3f0ff;
   background: #f8fafc;
   margin-bottom: 0.7rem;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
 }
 
 .change-photo-btn {
@@ -120,7 +118,7 @@
 .profile-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 420px;
@@ -145,7 +143,7 @@
   border: 4px solid #e3f0ff;
   background: #f8fafc;
   margin-bottom: 0.7rem;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
 }
 
 .change-photo-btn {
@@ -229,8 +227,6 @@
 }
 
 
-/* Add to: h:\class\MERN\mern-dropshipping\frontend\src\Styles\User.css */
-
 .profile-flex {
   display: flex;
   gap: 32px;
@@ -246,7 +242,7 @@
 .profile-options-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   padding: 28px 24px;
   min-width: 240px;
   max-width: 300px;
@@ -315,7 +311,7 @@
 .cart-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 700px;
@@ -344,9 +340,11 @@
   align-items: center;
   gap: 1.2rem;
 }
+
 .cart-sec-two {
   display: flex;
 }
+
 .cart-sec-three {
   flex: 1;
   display: flex;
@@ -508,7 +506,7 @@
 .trackorder-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 600px;
@@ -538,10 +536,12 @@
   color: #ff9800;
   font-weight: bold;
 }
+
 .trackorder-status-delivered {
   color: #28a745;
   font-weight: bold;
 }
+
 .trackorder-status-cancelled {
   color: #e63946;
   font-weight: bold;
@@ -550,17 +550,20 @@
 .trackorder-items {
   margin-bottom: 1.5rem;
 }
+
 .trackorder-items h3 {
   color: #007bff;
   font-size: 1.1rem;
   margin-bottom: 0.7rem;
 }
+
 .trackorder-item {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.7rem;
 }
+
 .trackorder-item-img {
   width: 54px;
   height: 54px;
@@ -568,10 +571,12 @@
   object-fit: cover;
   background: #f8fafc;
 }
+
 .trackorder-item-name {
   font-weight: 500;
   color: #222;
 }
+
 .trackorder-item-qty {
   font-size: 0.98rem;
   color: #555;
@@ -582,6 +587,7 @@
   font-size: 1.1rem;
   margin-bottom: 0.7rem;
 }
+
 .trackorder-steps {
   display: flex;
   flex-direction: column;
@@ -589,11 +595,13 @@
   margin-left: 1.2rem;
   position: relative;
 }
+
 .trackorder-step {
   display: flex;
   align-items: flex-start;
   position: relative;
 }
+
 .trackorder-step-dot {
   width: 28px;
   height: 28px;
@@ -609,24 +617,29 @@
   border: 2px solid #cce0ff;
   z-index: 2;
 }
+
 .trackorder-step.active .trackorder-step-dot {
   background: #007bff;
   color: #fff;
   border: 2px solid #007bff;
 }
+
 .trackorder-step-info {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
 }
+
 .trackorder-step-status {
   font-weight: 500;
   color: #222;
 }
+
 .trackorder-step-date {
   font-size: 0.97rem;
   color: #888;
 }
+
 .trackorder-step-line {
   position: absolute;
   left: 13px;
@@ -658,7 +671,7 @@
   border: 4px solid #e3f0ff;
   background: #f8fafc;
   margin-bottom: 0.7rem;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
 }
 
 .user-dashboard-header h1 {
@@ -684,7 +697,7 @@
 .user-dashboard-stat-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 1.5rem 2rem;
   min-width: 140px;
   text-align: center;
@@ -724,7 +737,7 @@
   margin: 0 auto 2.5rem auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   padding: 2rem 2rem 1.5rem 2rem;
   text-align: center;
 }
@@ -754,7 +767,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  box-shadow: 0 2px 8px rgba(0,123,255,0.07);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.07);
   transition: background 0.18s, color 0.18s, transform 0.18s;
 }
 
@@ -801,7 +814,7 @@
 .wishlist-card {
   background: #fff;
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0,123,255,0.10);
+  box-shadow: 0 4px 32px rgba(0, 123, 255, 0.10);
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   min-width: 340px;
   max-width: 700px;
@@ -869,9 +882,11 @@
   margin-top: 0.2rem;
   font-weight: 500;
 }
+
 .wishlist-item-stock.instock {
   color: #28a745;
 }
+
 .wishlist-item-stock.outstock {
   color: #e63946;
 }
@@ -930,8 +945,6 @@
 }
 
 
-/* Buy  */
-/* Buy Page Styles */
 .buy-main {
   display: flex;
   justify-content: center;
@@ -944,7 +957,7 @@
 .buy-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
   padding: 32px 28px;
   width: 100%;
   max-width: 700px;
@@ -1018,6 +1031,7 @@
   gap: 12px;
   margin-top: 6px;
 }
+
 .buy-item-price,
 .buy-item-qty,
 .buy-item-total {
@@ -1072,8 +1086,6 @@
 }
 
 
-/* order history */
-/* Add to h:\class\MERN\mern-dropshipping\frontend\src\styles\User.css */
 .order-history-main {
   padding: 32px 24px;
   background: #f7f8fa;
@@ -1095,7 +1107,7 @@
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .order-history-table th,
@@ -1127,9 +1139,10 @@
   background: #e68900;
 }
 
-.order-track-btn{
+.order-track-btn {
   text-align: center;
 }
+
 .order-track-btn button {
   padding: 12px 20px;
   border-radius: 5px;
@@ -1145,6 +1158,7 @@
     gap: 1.2rem;
     align-items: center;
   }
+
   .user-dashboard-links-row {
     flex-direction: column;
     gap: 0.8rem;
@@ -1160,38 +1174,48 @@
     min-width: 0;
     max-width: 90%;
   }
-  .cart-list{
+
+  .cart-list {
     padding: 0;
     margin: 0;
     gap: 0;
   }
+
   .cart-item {
     flex-direction: row;
     align-items: flex-start;
     gap: 0rem;
     margin: 0px 16px;
   }
-  .cart-sec-three{
-    flex-direction: column;;
+
+  .cart-sec-three {
+    flex-direction: column;
+    ;
   }
-  .cart-item-total{
+
+  .cart-item-total {
     min-width: 55px;
   }
-  .cart-order-btn{
+
+  .cart-order-btn {
     margin-bottom: 16px;
   }
+
   .cart-summary {
     align-items: center;
   }
-  .cart-sec-one{
+
+  .cart-sec-one {
     flex-direction: column;
     align-items: flex-start;
   }
-  .cart-sec-two{
+
+  .cart-sec-two {
     flex-direction: column;
     align-items: flex-start;
   }
-  .cart-sec-three{
+
+  .cart-sec-three {
 
     justify-content: flex-start;
   }
@@ -1208,6 +1232,7 @@
     min-width: 0;
     max-width: 98vw;
   }
+
   .wishlist-item {
     flex-direction: column;
     align-items: flex-start;
@@ -1215,28 +1240,33 @@
   }
 
 
-  .buy-card{
+  .buy-card {
     padding: 0px;
   }
-  .buy-sec{
+
+  .buy-sec {
     flex-direction: column;
   }
-  .buy-summary-row{
-    margin-right: 15px;
-  }
-  .buy-confirm-btn{
+
+  .buy-summary-row {
     margin-right: 15px;
   }
 
-  .order-confirm-box{
+  .buy-confirm-btn {
+    margin-right: 15px;
+  }
+
+  .order-confirm-box {
     padding: 0;
     min-width: 0;
   }
-  .order-confirm-item{
+
+  .order-confirm-item {
     gap: 3rem;
     margin: 0px 15px;
   }
-  .order-confirm-breakdown{
+
+  .order-confirm-breakdown {
     margin: 0px 15px 1.2rem 15px;
   }
 }
@@ -1249,22 +1279,24 @@
     min-width: 0;
     max-width: 98vw;
   }
-  .profile-flex{
+
+  .profile-flex {
     flex-direction: column;
     align-items: center;
   }
-  .profile-left{
+
+  .profile-left {
     padding: 0;
     width: 90%;
   }
+
   .profile-info-row {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px 16px;
   }
+
   .profile-label {
     margin-bottom: 0.2rem;
   }
 }
-
-

@@ -52,7 +52,6 @@ const UserDashboard = () => {
           <div className="user-stat-label">Addresses</div>
         </Link>
       </div>
-      {/* Add quick links and footer as needed */}
     </div>
   );
 };

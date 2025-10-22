@@ -8,9 +8,9 @@ const OrderHistory = () => {
   const userToken = localStorage.getItem("token");
 
   useEffect(() => {
-  API.get("/api/orders")
-    .then(res => setOrders(Array.isArray(res.data) ? res.data : []));
-}, [userToken]);
+    API.get("/api/orders")
+      .then(res => setOrders(Array.isArray(res.data) ? res.data : []));
+  }, [userToken]);
 
   if (!orders.length)
     return (

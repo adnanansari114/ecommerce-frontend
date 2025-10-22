@@ -14,7 +14,6 @@ const Navbar = () => {
 
   return (
     <nav className="custom-navbar">
-      {/* Left: Logo */} 
       <div className="navbar-logo">
         <Link to="/">
           <img
@@ -22,15 +21,12 @@ const Navbar = () => {
             alt="Trendora Logo"
             className="logo-img"
           />
-          {/* <span className="logo-text">Trendora</span> */}
         </Link>
         <span className="logo-text">Trendora</span>
         <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
       </div>
-
-      {/* Middle: Navigation Links */}
       <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
       <div className="navbar-links">
         <Link to="/">Home</Link>
@@ -41,7 +37,6 @@ const Navbar = () => {
       </div>
       </div>
 
-      {/* Right: Auth Buttons */}
       <div className={`navbar-menu ${menuOpen ? "active" : ""}`}>
       <div className="navbar-auth">
         {!user ? (
